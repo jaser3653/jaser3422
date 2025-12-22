@@ -16,7 +16,7 @@ export default function About() {
                     <div className="glass-card rounded-2xl p-4 rotate-3 hover:rotate-0 transition-transform duration-500">
                         <img
                             src="/assets/law-court.png"
-                            alt="مقر المكتب"
+                            alt="مقر مكتب عبدالله الجاسر للمحاسبة والمراجعة - الرياض"
                             className="rounded-xl w-full h-auto object-cover shadow-2xl"
                         />
                     </div>

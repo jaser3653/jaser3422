@@ -23,7 +23,7 @@ export default function Vision() {
                         <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                             <img
                                 src="/assets/-professional-saudi-businessman---.png"
-                                alt="Our Vision"
+                                alt="رؤية مكتب عبدالله الجاسر للمحاسبة والمراجعة القانونية"
                                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
                             />
                             {/* Glass Overlay */}

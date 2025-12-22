@@ -37,7 +37,7 @@ export default function Navbar() {
                 <a href="#" className="flex items-center gap-3">
                     <span className="text-gold-500 text-3xl md:text-4xl drop-shadow-lg">⚖️</span>
                     <div className="text-right">
-                        <span className="block text-xl md:text-2xl font-black text-white leading-none tracking-tight">الجســر</span>
+                        <span className="block text-xl md:text-2xl font-black text-white leading-none tracking-tight">الجاســر</span>
                         <span className="text-[10px] md:text-xs text-gold-500/80 font-medium tracking-widest uppercase">محاسبون قانونيون</span>
                     </div>
                 </a>
@@ -80,7 +80,7 @@ export default function Navbar() {
                         <div className="flex justify-between items-center mb-16">
                             <div className="flex items-center gap-3">
                                 <span className="text-gold-500 text-3xl">⚖️</span>
-                                <span className="text-2xl font-black text-white">الجســر</span>
+                                <span className="text-2xl font-black text-white">الجاســر</span>
                             </div>
                             <button
                                 className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 text-3xl text-gray-400 hover:text-white"
@@ -90,7 +90,7 @@ export default function Navbar() {
                             </button>
                         </div>
 
-                        <div className="flex flex-col gap-8 text-right grow">
+                        <div className="flex flex-col gap-6 text-right grow">
                             {navLinks.map((link, i) => (
                                 <motion.div
                                     key={link.name}
@@ -100,7 +100,7 @@ export default function Navbar() {
                                 >
                                     <a
                                         href={link.href}
-                                        className="text-4xl font-black text-white hover:text-gold-500 transition-colors inline-block"
+                                        className="text-2xl font-black text-white hover:text-gold-500 transition-colors inline-block"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {link.name}

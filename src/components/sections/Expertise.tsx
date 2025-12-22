@@ -33,7 +33,7 @@ export default function Expertise() {
                             <div className="absolute inset-0 bg-gradient-to-br from-gold-500/10 to-transparent z-10"></div>
                             <img
                                 src="/assets/581-removebg-preview.png"
-                                alt="فريق محترف"
+                                alt="فريق عمل مكتب الجاسر محاسبون ومراجعون قانونيون"
                                 className="w-full h-auto relative z-0"
                             />
                         </div>

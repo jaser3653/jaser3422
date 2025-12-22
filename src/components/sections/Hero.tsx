@@ -67,7 +67,7 @@ export default function Hero() {
                         {/* Main Illustration */}
                         <img
                             src="/assets/accountant-illustration.png"
-                            alt="Accountant Illustration"
+                            alt="مكتب عبدالله الجاسر محاسبون ومراجعون قانونيون - التميز المالي"
                             className="max-h-full w-auto object-contain drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
                         />
                     </div>
