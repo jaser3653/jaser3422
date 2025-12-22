@@ -17,6 +17,10 @@ export default function About() {
                         <img
                             src="/assets/law-court.png"
                             alt="مقر مكتب عبدالله الجاسر للمحاسبة والمراجعة - الرياض"
+                            width="800"
+                            height="600"
+                            loading="lazy"
+                            decoding="async"
                             className="rounded-xl w-full h-auto object-cover shadow-2xl"
                         />
                     </div>

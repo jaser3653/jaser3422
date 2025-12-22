@@ -24,6 +24,10 @@ export default function Vision() {
                             <img
                                 src="/assets/-professional-saudi-businessman---.png"
                                 alt="رؤية مكتب عبدالله الجاسر للمحاسبة والمراجعة القانونية"
+                                width="800"
+                                height="800"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
                             />
                             {/* Glass Overlay */}

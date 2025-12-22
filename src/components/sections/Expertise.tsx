@@ -34,6 +34,10 @@ export default function Expertise() {
                             <img
                                 src="/assets/581-removebg-preview.png"
                                 alt="فريق عمل مكتب الجاسر محاسبون ومراجعون قانونيون"
+                                width="800"
+                                height="600"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-auto relative z-0"
                             />
                         </div>

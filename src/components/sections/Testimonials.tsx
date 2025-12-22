@@ -47,7 +47,7 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="py-20 md:py-32 bg-gradient-to-b from-navy-900 to-navy-800 relative overflow-hidden">
+        <section id="testimonials" className="py-20 md:py-32 bg-gradient-to-b from-navy-900 to-navy-800 relative overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-gold-500/5 rounded-full blur-[100px] md:blur-[150px]"></div>
