@@ -138,13 +138,13 @@ export default function HorizontalBanners() {
                     >
                         {/* Background Image with Parallax */}
                         <div className="absolute inset-0 overflow-hidden">
-                            <div
-                                className="banner-image absolute inset-0 w-[120%] h-full"
+                            <img
+                                src={banner.image}
+                                alt={banner.title}
+                                className="banner-image absolute inset-0 w-full h-full object-cover"
                                 style={{
-                                    backgroundImage: `url(${banner.image})`,
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    filter: 'brightness(0.5) contrast(1.1)'
+                                    filter: 'brightness(0.5) contrast(1.1)',
+                                    transform: 'scale(1.2)'
                                 }}
                             />
                         </div>
