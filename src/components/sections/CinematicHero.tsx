@@ -14,10 +14,6 @@ export default function CinematicHero() {
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
     const blur = useTransform(scrollYProgress, [0, 0.5], [0, 10]);
 
-    // Image parallax
-    const imageY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-    const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-
     // Typing effect for subtitle
     const [typedText, setTypedText] = useState("");
     const fullText = "حلول محاسبية متكاملة | التزام بأعلى المعايير الدولية | خبرة سعودية رائدة";
@@ -85,160 +81,181 @@ export default function CinematicHero() {
             {/* Floating Financial Symbols */}
             <FloatingSymbols />
 
-            {/* Professional Image - Left Side with Parallax */}
-            <motion.div
-                style={{
-                    y: imageY,
-                    opacity: imageOpacity
-                }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 w-1/3 h-full z-5 hidden lg:block"
-            >
-                <div className="relative h-full flex items-center">
-                    <motion.img
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1.2, delay: 0.5 }}
-                        src="/assets/professional-accountant.png"
-                        alt="مكتب الجاسر - محاسب محترف"
-                        className="w-full h-auto object-contain drop-shadow-2xl"
-                        style={{
-                            filter: 'drop-shadow(0 0 40px rgba(218, 165, 32, 0.3))'
-                        }}
-                    />
-                    {/* Glow Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-gold-500/10 to-transparent blur-3xl" />
-                </div>
-            </motion.div>
+            {/* Hero Grid Layout */}
+            <div className="container mx-auto px-4 z-10 relative">
+                <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
 
-            {/* Main Content */}
-            <motion.div
-                style={{ y, opacity, filter: blur.get() ? `blur(${blur.get()}px)` : 'none' }}
-                className="container mx-auto px-4 z-10 text-center relative"
-            >
-                {/* Company Badge */}
-                <motion.div
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 1, delay: 0.3, type: "spring" }}
-                    className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-gold-500/10 to-gold-600/10 border border-gold-500/30 backdrop-blur-xl mb-8"
-                >
-                    <span className="text-3xl">⚖️</span>
-                    <div className="text-right">
-                        <div className="text-gold-400 font-bold text-sm">مرخص من وزارة التجارة</div>
-                        <div className="text-white text-xs">ترخيص رقم 1019</div>
-                    </div>
-                </motion.div>
-
-                {/* Main Title */}
-                <motion.h1
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-tight"
-                >
-                    مكتب عبدالله الجاسر
-                </motion.h1>
-
-                <motion.p
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                    className="text-xl md:text-2xl text-gray-300 mb-6"
-                >
-                    محاسبون ومراجعون قانونيون
-                </motion.p>
-
-                {/* Animated Gradient Title */}
-                <motion.h2
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.9 }}
-                    className="text-4xl md:text-6xl font-black mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 animate-gradient"
-                    style={{
-                        backgroundSize: '200% 200%',
-                        animation: 'gradientShift 3s ease infinite'
-                    }}
-                >
-                    شريكك الموثوق في التميز المالي
-                </motion.h2>
-
-                {/* Typing Effect Subtitle */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.2 }}
-                    className="text-lg md:text-xl text-gray-400 mb-12 h-8 font-medium"
-                >
-                    {typedText}<span className="animate-pulse">|</span>
-                </motion.div>
-
-                {/* CTAs with Magnetic Effect */}
-                <motion.div
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.5 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-                >
-                    <Button
-                        variant="primary"
-                        size="lg"
-                        href="#contact"
-                        className="px-12 py-6 text-xl group relative overflow-hidden"
+                    {/* Left Side - Content */}
+                    <motion.div
+                        style={{ y, opacity, filter: blur.get() ? `blur(${blur.get()}px)` : 'none' }}
+                        className="text-right space-y-8 order-2 lg:order-1"
                     >
-                        <span className="relative z-10">احجز استشارة مجانية</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-gold-600 to-gold-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-                    </Button>
-                    <Button
-                        variant="outline"
-                        size="lg"
-                        href="#services"
-                        className="px-12 py-6 text-xl hover:bg-white/5"
-                    >
-                        استكشف خدماتنا
-                    </Button>
-                </motion.div>
-
-                {/* Animated Stats */}
-                <motion.div
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.7 }}
-                    className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-12"
-                >
-                    <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
-                        <div className="text-4xl md:text-5xl font-black text-gold-500 mb-2">+{counts.years}</div>
-                        <div className="text-sm md:text-base text-gray-400">سنة خبرة</div>
-                    </div>
-                    <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
-                        <div className="text-4xl md:text-5xl font-black text-gold-500 mb-2">+{counts.clients}</div>
-                        <div className="text-sm md:text-base text-gray-400">عميل راضٍ</div>
-                    </div>
-                    <div className="glass-card p-6 rounded-2xl hover:scale-105 transition-transform">
-                        <div className="text-4xl md:text-5xl font-black text-gold-500 mb-2">{counts.commitment}%</div>
-                        <div className="text-sm md:text-base text-gray-400">التزام بالمعايير</div>
-                    </div>
-                </motion.div>
-
-                {/* Trust Badges */}
-                <motion.div
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1.9 }}
-                    className="flex flex-wrap justify-center gap-6 items-center"
-                >
-                    {['SOCPA', 'وزارة التجارة', 'الغرفة التجارية'].map((badge, i) => (
+                        {/* Company Badge */}
                         <motion.div
-                            key={badge}
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 2 + i * 0.1, type: "spring" }}
-                            className="px-6 py-3 bg-white/5 backdrop-blur-md border border-gold-500/20 rounded-xl text-gold-400 font-bold hover:bg-white/10 transition-colors"
+                            initial={{ scale: 0, rotate: -180 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={{ duration: 1, delay: 0.3, type: "spring" }}
+                            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-gold-500/10 to-gold-600/10 border border-gold-500/30 backdrop-blur-xl mb-8"
                         >
-                            {badge}
+                            <span className="text-3xl">⚖️</span>
+                            <div className="text-right">
+                                <div className="text-gold-400 font-bold text-sm">مرخص من وزارة التجارة</div>
+                                <div className="text-white text-xs">ترخيص رقم 1019</div>
+                            </div>
                         </motion.div>
-                    ))}
-                </motion.div>
-            </motion.div>
+
+                        {/* Main Title */}
+                        <motion.h1
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.5 }}
+                            className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight"
+                        >
+                            مكتب عبدالله الجاسر
+                        </motion.h1>
+
+                        <motion.p
+                            initial={{ y: 30, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.7 }}
+                            className="text-xl md:text-2xl text-gray-300 mb-6"
+                        >
+                            محاسبون ومراجعون قانونيون
+                        </motion.p>
+
+                        {/* Animated Gradient Title */}
+                        <motion.h2
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 1, delay: 0.9 }}
+                            className="text-3xl md:text-5xl font-black mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600"
+                            style={{
+                                backgroundSize: '200% 200%',
+                                animation: 'gradientShift 3s ease infinite'
+                            }}
+                        >
+                            شريكك الموثوق في التميز المالي
+                        </motion.h2>
+
+                        {/* Typing Effect Subtitle */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1.2 }}
+                            className="text-base md:text-lg text-gray-400 mb-12 font-medium"
+                        >
+                            {typedText}<span className="animate-pulse">|</span>
+                        </motion.div>
+
+                        {/* CTAs */}
+                        <motion.div
+                            initial={{ y: 30, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 1.5 }}
+                            className="flex flex-col sm:flex-row gap-4 mb-12"
+                        >
+                            <Button
+                                variant="primary"
+                                size="lg"
+                                href="#contact"
+                                className="px-10 py-5 text-lg group relative overflow-hidden"
+                            >
+                                <span className="relative z-10">احجز استشارة مجانية</span>
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                href="#services"
+                                className="px-10 py-5 text-lg hover:bg-white/5"
+                            >
+                                استكشف خدماتنا
+                            </Button>
+                        </motion.div>
+
+                        {/* Animated Stats */}
+                        <motion.div
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 1.7 }}
+                            className="grid grid-cols-3 gap-6 mb-8"
+                        >
+                            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-transform">
+                                <div className="text-3xl md:text-4xl font-black text-gold-500 mb-1">+{counts.years}</div>
+                                <div className="text-xs md:text-sm text-gray-400">سنة خبرة</div>
+                            </div>
+                            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-transform">
+                                <div className="text-3xl md:text-4xl font-black text-gold-500 mb-1">+{counts.clients}</div>
+                                <div className="text-xs md:text-sm text-gray-400">عميل راضٍ</div>
+                            </div>
+                            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-transform">
+                                <div className="text-3xl md:text-4xl font-black text-gold-500 mb-1">{counts.commitment}%</div>
+                                <div className="text-xs md:text-sm text-gray-400">التزام بالمعايير</div>
+                            </div>
+                        </motion.div>
+
+                        {/* Trust Badges */}
+                        <motion.div
+                            initial={{ y: 30, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 1.9 }}
+                            className="flex flex-wrap gap-4"
+                        >
+                            {['SOCPA', 'وزارة التجارة', 'الغرفة التجارية'].map((badge, i) => (
+                                <motion.div
+                                    key={badge}
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ delay: 2 + i * 0.1, type: "spring" }}
+                                    className="px-4 py-2 bg-white/5 backdrop-blur-md border border-gold-500/20 rounded-lg text-gold-400 text-sm font-bold hover:bg-white/10 transition-colors"
+                                >
+                                    {badge}
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Right Side - Professional Image */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 1.2, delay: 0.6 }}
+                        className="relative order-1 lg:order-2"
+                    >
+                        <div className="relative">
+                            {/* Decorative Elements */}
+                            <div className="absolute -inset-4 bg-gradient-to-br from-gold-500/20 to-transparent rounded-3xl blur-2xl" />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-navy-900/50 to-transparent rounded-3xl" />
+
+                            {/* Image Container */}
+                            <div className="relative rounded-3xl overflow-hidden border border-gold-500/20 shadow-2xl">
+                                <img
+                                    src="/assets/hero-professional.png"
+                                    alt="مكتب عبدالله الجاسر - محاسبون محترفون"
+                                    className="w-full h-auto object-cover"
+                                    loading="eager"
+                                    fetchPriority="high"
+                                />
+                                {/* Overlay Gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+                            </div>
+
+                            {/* Floating Badge */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1.5 }}
+                                className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gold-500 to-gold-600 p-6 rounded-2xl shadow-2xl"
+                            >
+                                <div className="text-center">
+                                    <div className="text-3xl font-black text-white">15+</div>
+                                    <div className="text-xs text-white/90 font-medium">عام من التميز</div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </motion.div>
+
+                </div>
+            </div>
 
 
 
