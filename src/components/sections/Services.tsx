@@ -8,279 +8,169 @@ export default function Services() {
     const [selectedService, setSelectedService] = useState<number | null>(null);
 
     return (
-        <section id="services" className="py-32 bg-navy-900 relative overflow-hidden">
-            {/* Animated Background */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[150px] animate-pulse"></div>
-                <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[120px]"></div>
+        <section id="services" className="py-24 sm:py-32 bg-navy-900 relative overflow-hidden">
+            {/* Ultra Premium Background Elements */}
+            <div className="absolute inset-0 pointer-events-none select-none">
+                <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] flex items-center justify-center overflow-hidden">
+                    <span className="text-[30vw] font-black text-gold-500 transform -rotate-12 translate-y-20">ALJASER</span>
+                </div>
+                <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[180px] animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[150px]"></div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
-                {/* Header */}
-                <div className="text-center mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-gold-500/10 to-gold-600/10 border border-gold-500/20 text-gold-400 mb-8"
-                    >
-                        <HiSparkles className="text-xl" />
-                        <span className="font-bold">خدماتنا الاحترافية</span>
-                    </motion.div>
+                {/* Header Section */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+                    <div className="max-w-2xl text-right">
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-500 text-sm font-black mb-6"
+                        >
+                            <HiSparkles className="text-xl" />
+                            <span>مستوى عالمي من الاحترافية</span>
+                        </motion.div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 leading-tight"
-                    >
-                        نبني معك مستقبل
-                        <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600">
-                            مالي متين
-                        </span>
-                    </motion.h2>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight"
+                        >
+                            دقة التفاصيل <br />
+                            تَصنع <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-600">القوة المالية</span>
+                        </motion.h2>
+                    </div>
                 </div>
 
-                {/* Bento Grid Layout */}
-                <div className="grid grid-cols-12 gap-4 sm:gap-6 auto-rows-[240px] sm:auto-rows-[280px] mb-16">
+                {/* Bento Grid layout with refined styling */}
+                <div className="grid grid-cols-12 gap-5 sm:gap-8 auto-rows-[250px] sm:auto-rows-[300px] mb-20">
 
-                    {/* Service 1 - Large Featured (Audit) */}
+                    {/* Service 1 - Audit (Leading) */}
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0 }}
                         className="col-span-12 md:col-span-7 row-span-2 group cursor-pointer"
                         onClick={() => setSelectedService(1)}
                     >
-                        <div className="relative h-full rounded-3xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-500/20">
-                            <div className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-900"></div>
+                        <div className="relative h-full rounded-[2.5rem] overflow-hidden bg-navy-800/20 border border-white/5 group-hover:border-gold-500/40 transition-all duration-700">
+                            {/* Inner Shadow Glow */}
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[inset_0_0_100px_rgba(218,165,32,0.15)]" />
+
                             <img
                                 src={servicesData[0].image}
                                 alt={servicesData[0].title}
-                                className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700"
+                                className="absolute inset-0 w-full h-full object-cover opacity-20 filter grayscale-[50%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s]"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
 
-                            <div className="relative h-full p-10 flex flex-col justify-between">
+                            <div className="relative h-full p-8 md:p-12 flex flex-col justify-between">
                                 <div className="flex items-start justify-between">
-                                    <div className="w-20 h-20 rounded-2xl bg-gold-500/10 backdrop-blur-md border border-gold-500/30 flex items-center justify-center group-hover:bg-gold-500 group-hover:scale-110 transition-all duration-300">
-                                        <HiOutlineDocumentSearch className="text-4xl text-gold-400 group-hover:text-navy-900" />
+                                    <div className="flex flex-col gap-4">
+                                        <div className="w-20 h-20 rounded-[1.5rem] bg-gold-500/10 backdrop-blur-3xl border border-gold-500/20 flex items-center justify-center group-hover:bg-gold-500 group-hover:scale-110 transition-all duration-500">
+                                            <HiOutlineDocumentSearch className="text-4xl text-gold-400 group-hover:text-navy-900" />
+                                        </div>
+                                        <span className="text-[10px] font-black tracking-[0.2em] text-navy-900 bg-gold-500 px-4 py-1.5 rounded-full w-fit uppercase">Leading Service</span>
                                     </div>
-                                    <span className="text-8xl font-black text-white/5 group-hover:text-gold-500/10 transition-colors">01</span>
+                                    <span className="text-[10rem] font-black text-white/[0.03] leading-none select-none">01</span>
                                 </div>
 
-                                <div>
-                                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-gold-400 transition-colors">
+                                <div className="space-y-4">
+                                    <h3 className="text-3xl md:text-5xl font-black text-white group-hover:text-gold-400 transition-colors">
                                         {servicesData[0].title}
                                     </h3>
-                                    <p className="text-gray-400 text-lg leading-relaxed mb-6 line-clamp-2">
+                                    <p className="text-white/60 text-lg leading-relaxed max-w-lg line-clamp-2">
                                         {servicesData[0].shortDesc}
                                     </p>
-                                    <div className="inline-flex items-center gap-3 text-gold-500 font-bold group-hover:gap-5 transition-all">
-                                        <span>اكتشف المزيد</span>
-                                        <span className="text-2xl">←</span>
+                                    <div className="flex items-center gap-3 text-gold-500 group-hover:gap-6 transition-all duration-500 font-black">
+                                        <span className="h-0.5 w-12 bg-gold-500/30 group-hover:w-20 group-hover:bg-gold-500 transition-all" />
+                                        <span>التفاصيل الكاملة</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Service 2 - Medium (Tax) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="col-span-12 md:col-span-5 row-span-1 group cursor-pointer"
-                        onClick={() => setSelectedService(2)}
-                    >
-                        <div className="relative h-full rounded-3xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-500/20">
-                            <div className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-900"></div>
-                            <img
-                                src={servicesData[1].image}
-                                alt={servicesData[1].title}
-                                className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 group-hover:scale-110 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent"></div>
+                    {/* Others follow similar premium structure... */}
+                    {[1, 2, 3, 4, 5].map((idx) => {
+                        const s = servicesData[idx];
+                        const icons = [HiOutlineCalculator, HiOutlineChartPie, HiOutlineTrendingUp, HiOutlineOfficeBuilding, HiOutlineScale];
+                        const Icon = icons[idx - 1];
 
-                            <div className="relative h-full p-8 flex flex-col justify-between">
-                                <div className="w-16 h-16 rounded-xl bg-gold-500/10 backdrop-blur-md border border-gold-500/30 flex items-center justify-center group-hover:bg-gold-500 transition-all duration-300">
-                                    <HiOutlineCalculator className="text-3xl text-gold-400 group-hover:text-navy-900" />
-                                </div>
+                        // Define different spans for a more interesting Bento grid
+                        const spans = [
+                            "col-span-12 md:col-span-5 row-span-1",
+                            "col-span-12 md:col-span-5 row-span-1",
+                            "col-span-12 md:col-span-7 row-span-1",
+                            "col-span-12 md:col-span-5 row-span-2",
+                            "col-span-12 md:col-span-7 row-span-1"
+                        ];
 
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">
-                                        {servicesData[1].title}
-                                    </h3>
-                                    <p className="text-gray-400 leading-relaxed line-clamp-2 text-sm">
-                                        {servicesData[1].shortDesc}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+                        return (
+                            <motion.div
+                                key={s.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className={`${spans[idx - 1]} group cursor-pointer`}
+                                onClick={() => setSelectedService(s.id)}
+                            >
+                                <div className="relative h-full rounded-[2rem] overflow-hidden bg-white/[0.02] border border-white/5 hover:border-gold-500/30 transition-all duration-500 backdrop-blur-sm">
+                                    <img
+                                        src={s.image}
+                                        alt={s.title}
+                                        className="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-transform duration-1000"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
 
-                    {/* Service 3 - Medium (Bookkeeping) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="col-span-12 md:col-span-5 row-span-1 group cursor-pointer"
-                        onClick={() => setSelectedService(3)}
-                    >
-                        <div className="relative h-full rounded-3xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-500/20">
-                            <div className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-900"></div>
-                            <img
-                                src={servicesData[2].image}
-                                alt={servicesData[2].title}
-                                className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 group-hover:scale-110 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent"></div>
+                                    <div className="relative h-full p-8 flex flex-col justify-between">
+                                        <div className="flex justify-between items-start">
+                                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-gold-500 group-hover:border-gold-400 group-hover:scale-110 transition-all duration-500">
+                                                <Icon className="text-2xl text-white group-hover:text-navy-900" />
+                                            </div>
+                                            <span className="text-4xl font-black text-white/5">0{s.id}</span>
+                                        </div>
 
-                            <div className="relative h-full p-8 flex flex-col justify-between">
-                                <div className="w-16 h-16 rounded-xl bg-gold-500/10 backdrop-blur-md border border-gold-500/30 flex items-center justify-center group-hover:bg-gold-500 transition-all duration-300">
-                                    <HiOutlineChartPie className="text-3xl text-gold-400 group-hover:text-navy-900" />
-                                </div>
-
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">
-                                        {servicesData[2].title}
-                                    </h3>
-                                    <p className="text-gray-400 leading-relaxed line-clamp-2 text-sm">
-                                        {servicesData[2].shortDesc}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Service 4 - Wide (Financial Reports) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="col-span-12 md:col-span-7 row-span-1 group cursor-pointer"
-                        onClick={() => setSelectedService(4)}
-                    >
-                        <div className="relative h-full rounded-3xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-500/20">
-                            <div className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-900"></div>
-                            <img
-                                src={servicesData[3].image}
-                                alt={servicesData[3].title}
-                                className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 group-hover:scale-110 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/60 to-transparent"></div>
-
-                            <div className="relative h-full p-8 flex items-center justify-between">
-                                <div>
-                                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-gold-400 transition-colors">
-                                        {servicesData[3].title}
-                                    </h3>
-                                    <p className="text-gray-400 leading-relaxed line-clamp-2 max-w-xl">
-                                        {servicesData[3].shortDesc}
-                                    </p>
-                                </div>
-                                <div className="w-20 h-20 rounded-2xl bg-gold-500/10 backdrop-blur-md border border-gold-500/30 flex items-center justify-center group-hover:bg-gold-500 transition-all duration-300">
-                                    <HiOutlineTrendingUp className="text-4xl text-gold-400 group-hover:text-navy-900" />
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Service 5 - Tall (Wafi) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
-                        className="col-span-12 md:col-span-5 row-span-2 group cursor-pointer"
-                        onClick={() => setSelectedService(5)}
-                    >
-                        <div className="relative h-full rounded-3xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-500/20">
-                            <div className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-900"></div>
-                            <img
-                                src={servicesData[4].image}
-                                alt={servicesData[4].title}
-                                className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent"></div>
-
-                            <div className="relative h-full p-10 flex flex-col justify-between">
-                                <div className="w-20 h-20 rounded-2xl bg-gold-500/10 backdrop-blur-md border border-gold-500/30 flex items-center justify-center group-hover:bg-gold-500 group-hover:scale-110 transition-all duration-300">
-                                    <HiOutlineOfficeBuilding className="text-4xl text-gold-400 group-hover:text-navy-900" />
-                                </div>
-
-                                <div>
-                                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-gold-400 transition-colors">
-                                        {servicesData[4].title}
-                                    </h3>
-                                    <p className="text-gray-400 text-lg leading-relaxed mb-6 line-clamp-3">
-                                        {servicesData[4].shortDesc}
-                                    </p>
-                                    <div className="inline-flex items-center gap-3 text-gold-500 font-bold group-hover:gap-5 transition-all">
-                                        <span>التفاصيل</span>
-                                        <span className="text-2xl">←</span>
+                                        <div className="space-y-2">
+                                            <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-gold-400 transition-colors">
+                                                {s.title}
+                                            </h3>
+                                            <p className="text-sm text-white/40 leading-relaxed line-clamp-2">
+                                                {s.shortDesc}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Service 6 - Wide (Other Services) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 }}
-                        className="col-span-12 md:col-span-7 row-span-1 group cursor-pointer"
-                        onClick={() => setSelectedService(6)}
-                    >
-                        <div className="relative h-full rounded-3xl overflow-hidden border border-white/5 hover:border-gold-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-500/20">
-                            <div className="absolute inset-0 bg-gradient-to-br from-navy-800 to-navy-900"></div>
-                            <img
-                                src={servicesData[5].image}
-                                alt={servicesData[5].title}
-                                className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 group-hover:scale-110 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/60 to-transparent"></div>
-
-                            <div className="relative h-full p-8 flex items-center justify-between">
-                                <div>
-                                    <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-gold-400 transition-colors">
-                                        {servicesData[5].title}
-                                    </h3>
-                                    <p className="text-gray-400 leading-relaxed line-clamp-2 max-w-xl">
-                                        {servicesData[5].shortDesc}
-                                    </p>
-                                </div>
-                                <div className="w-20 h-20 rounded-2xl bg-gold-500/10 backdrop-blur-md border border-gold-500/30 flex items-center justify-center group-hover:bg-gold-500 transition-all duration-300">
-                                    <HiOutlineScale className="text-4xl text-gold-400 group-hover:text-navy-900" />
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
-                {/* Bottom CTA */}
+                {/* Bottom CTA with Floating Effect */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center"
+                    className="relative"
                 >
-                    <div className="inline-block bg-navy-800/40 backdrop-blur-xl px-12 py-10 rounded-3xl border border-gold-500/20">
-                        <h3 className="text-2xl font-bold text-white mb-3">هل تحتاج استشارة مخصصة؟</h3>
-                        <p className="text-gray-400 mb-6 text-lg">فريقنا جاهز لمساعدتك في إيجاد الحل المناسب</p>
+                    <div className="absolute inset-0 bg-gold-500/5 blur-[100px] rounded-full" />
+                    <div className="relative bg-navy-950/50 backdrop-blur-3xl p-10 sm:p-16 rounded-[3rem] border border-white/5 flex flex-col md:flex-row items-center justify-between gap-10">
+                        <div className="text-right">
+                            <h3 className="text-3xl sm:text-4xl font-black text-white mb-4">هل تبحث عن خدمات مالية استثنائية؟</h3>
+                            <p className="text-white/50 text-xl max-w-xl leading-relaxed font-bold">نحن ندرك أن خلف كل رقم قصة نجاح، ونحن هنا لنضمن دقة تلك الأرقام ومصداقيتها.</p>
+                        </div>
                         <a
                             href="#contact"
-                            className="inline-block px-12 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:scale-105"
+                            className="group relative px-12 py-6 bg-gradient-to-br from-gold-500 to-gold-700 text-white font-black text-lg rounded-2xl shadow-[0_20px_40px_rgba(218,165,32,0.2)] hover:scale-105 transition-all duration-500 overflow-hidden"
                         >
-                            تواصل معنا الآن
+                            <span className="relative z-10 flex items-center gap-3">
+                                تواصل مع خبرائنا الآن
+                                <HiSparkles className="text-2xl group-hover:rotate-12 transition-transform" />
+                            </span>
+                            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                         </a>
                     </div>
                 </motion.div>
@@ -293,9 +183,8 @@ export default function Services() {
                     onClose={() => setSelectedService(null)}
                     title={servicesData.find(s => s.id === selectedService)?.title || ""}
                     image={servicesData.find(s => s.id === selectedService)?.image || ""}
-                >
-                    {servicesData.find(s => s.id === selectedService)?.content}
-                </ServiceModal>
+                    details={servicesData.find(s => s.id === selectedService)?.details || { overview: null, targetAudience: null, whyUs: null }}
+                />
             )}
         </section>
     );

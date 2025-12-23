@@ -63,6 +63,7 @@ export default function Navbar() {
                 <button
                     className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-2xl text-white active:scale-90 transition-transform"
                     onClick={() => setMobileMenuOpen(true)}
+                    aria-label="فتح القائمة الرئيسية"
                 >
                     <HiMenuAlt3 />
                 </button>
@@ -85,6 +86,7 @@ export default function Navbar() {
                             <button
                                 className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 text-3xl text-gray-400 hover:text-white"
                                 onClick={() => setMobileMenuOpen(false)}
+                                aria-label="إغلاق القائمة"
                             >
                                 <HiX />
                             </button>

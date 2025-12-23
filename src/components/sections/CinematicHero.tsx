@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Button from "../ui/Button";
 import FloatingSymbols from "../ui/FloatingSymbols";
+import { HiCheckCircle, HiChevronDown } from "react-icons/hi";
 
 export default function CinematicHero() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -10,11 +11,9 @@ export default function CinematicHero() {
         offset: ["start start", "end start"]
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
+    const y = useTransform(scrollYProgress, [0, 1], [0, 150]); // Reduced parallax intensity
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const blur = useTransform(scrollYProgress, [0, 0.5], [0, 10]);
 
-    // Typing effect for subtitle
     const [typedText, setTypedText] = useState("");
     const fullText = "حلول محاسبية متكاملة | التزام بأعلى المعايير الدولية | خبرة سعودية رائدة";
 
@@ -31,246 +30,195 @@ export default function CinematicHero() {
         return () => clearInterval(timer);
     }, []);
 
-    // Counter animation
-    const [counts, setCounts] = useState({ years: 0, clients: 0, commitment: 0 });
-
-    useEffect(() => {
-        const duration = 2000;
-        const steps = 60;
-        const interval = duration / steps;
-
-        const timer = setInterval(() => {
-            setCounts(prev => ({
-                years: prev.years < 15 ? prev.years + 1 : 15,
-                clients: prev.clients < 500 ? prev.clients + 10 : 500,
-                commitment: prev.commitment < 100 ? prev.commitment + 2 : 100
-            }));
-        }, interval);
-
-        setTimeout(() => clearInterval(timer), duration);
-        return () => clearInterval(timer);
-    }, []);
-
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-screen flex items-center justify-center overflow-hidden"
+            className="relative min-h-[100vh] lg:min-h-[110vh] flex items-center justify-center overflow-hidden bg-navy-950"
         >
+            {/* Cinematic Noise Texture */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
             {/* 3D Geometric Grid Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950">
-                {/* Animated Grid */}
                 <div
-                    className="absolute inset-0 opacity-20"
+                    className="absolute inset-0 opacity-10"
                     style={{
-                        backgroundImage: 'linear-gradient(rgba(218, 165, 32, 0.3) 2px, transparent 2px), linear-gradient(90deg, rgba(218, 165, 32, 0.3) 2px, transparent 2px)',
-                        backgroundSize: '100px 100px',
-                        transform: 'perspective(1000px) rotateX(60deg)',
-                        transformOrigin: 'center center',
-                        animation: 'gridPulse 10s ease-in-out infinite'
+                        backgroundImage: 'linear-gradient(rgba(218, 165, 32, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(218, 165, 32, 0.2) 1px, transparent 1px)',
+                        backgroundSize: '80px 80px',
+                        transform: 'perspective(1000px) rotateX(60deg) translateY(-100px)',
+                        transformOrigin: 'top center',
                     }}
                 />
 
-                {/* Radial Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-radial from-transparent via-navy-900/50 to-navy-950" />
-
-                {/* Animated Light Beams */}
-                <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-gold-500/0 via-gold-500/20 to-gold-500/0 animate-pulse" />
-                <div className="absolute top-0 right-1/4 w-1 h-full bg-gradient-to-b from-gold-500/0 via-gold-500/20 to-gold-500/0 animate-pulse" style={{ animationDelay: '1s' }} />
+                {/* Light Orbs */}
+                <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[120px] animate-pulse" />
+                <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[150px]" />
             </div>
 
-            {/* Floating Financial Symbols */}
             <FloatingSymbols />
 
-            {/* Hero Grid Layout */}
             <div className="container mx-auto px-4 z-10 relative">
-                <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-screen py-10 lg:py-32">
 
-                    {/* Left Side - Content */}
+                    {/* Left Side Content */}
                     <motion.div
-                        style={{ y, opacity, filter: blur.get() ? `blur(${blur.get()}px)` : 'none' }}
-                        className="text-right space-y-8 order-2 lg:order-1"
+                        style={{
+                            y: typeof window !== 'undefined' && window.innerWidth > 1024 ? y : 0,
+                            opacity
+                        }}
+                        className="text-center lg:text-right space-y-4 md:space-y-8 order-2 lg:order-1 pt-6 lg:pt-0 w-full flex flex-col items-center lg:items-end"
                     >
-                        {/* Company Badge */}
+                        {/* Premium Badge */}
                         <motion.div
-                            initial={{ scale: 0, rotate: -180 }}
-                            animate={{ scale: 1, rotate: 0 }}
-                            transition={{ duration: 1, delay: 0.3, type: "spring" }}
-                            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-gold-500/10 to-gold-600/10 border border-gold-500/30 backdrop-blur-xl mb-8"
+                            initial={typeof window !== 'undefined' && window.innerWidth > 1024 ? { x: 50, opacity: 0 } : { opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.8, type: "spring" }}
+                            className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-2xl group flex-row-reverse"
                         >
-                            <span className="text-3xl">⚖️</span>
+                            <div className="w-8 h-8 rounded-lg bg-gold-500/20 flex items-center justify-center border border-gold-500/30 group-hover:scale-110 transition-transform">
+                                <span className="text-sm">🇸🇦</span>
+                            </div>
                             <div className="text-right">
-                                <div className="text-gold-400 font-bold text-sm">مرخص من وزارة التجارة</div>
-                                <div className="text-white text-xs">ترخيص رقم 1019</div>
+                                <span className="block text-gold-400 font-black text-[10px] uppercase tracking-widest mb-0.5">ترخيص رسمي</span>
+                                <span className="block text-white/50 text-[8px] font-bold">رقم 1019</span>
                             </div>
                         </motion.div>
 
-                        {/* Main Title */}
-                        <motion.h1
-                            initial={{ y: 50, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight"
-                        >
-                            مكتب عبدالله الجاسر
-                        </motion.h1>
+                        {/* Title Section */}
+                        <div className="space-y-2 lg:space-y-4 w-full">
+                            <motion.h1
+                                initial={typeof window !== 'undefined' && window.innerWidth > 1024 ? { y: 30, opacity: 0 } : { opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 1, delay: 0.2 }}
+                                className="text-3xl sm:text-6xl lg:text-8xl font-black text-white leading-tight lg:tracking-tight"
+                            >
+                                مكتب عبدالله <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-l from-gold-300 via-gold-500 to-gold-600">الجاسر</span>
+                            </motion.h1>
 
-                        <motion.p
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.7 }}
-                            className="text-xl md:text-2xl text-gray-300 mb-6"
-                        >
-                            محاسبون ومراجعون قانونيون
-                        </motion.p>
+                            <motion.p
+                                initial={typeof window !== 'undefined' && window.innerWidth > 1024 ? { y: 20, opacity: 0 } : { opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                                className="text-base sm:text-2xl text-white/60 font-medium tracking-wide"
+                            >
+                                محاسبون ومراجعون قانونيون
+                            </motion.p>
+                        </div>
 
-                        {/* Animated Gradient Title */}
-                        <motion.h2
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 1, delay: 0.9 }}
-                            className="text-3xl md:text-5xl font-black mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600"
-                            style={{
-                                backgroundSize: '200% 200%',
-                                animation: 'gradientShift 3s ease infinite'
-                            }}
-                        >
-                            شريكك الموثوق في التميز المالي
-                        </motion.h2>
-
-                        {/* Typing Effect Subtitle */}
+                        {/* Typing Effect Content */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 1.2 }}
-                            className="text-base md:text-lg text-gray-400 mb-12 font-medium"
+                            transition={{ duration: 1, delay: 0.6 }}
+                            className="relative min-h-[4.5rem] sm:min-h-[3rem] py-2 w-full flex flex-col items-center lg:items-end"
                         >
-                            {typedText}<span className="animate-pulse">|</span>
+                            <div className="absolute inset-y-0 right-0 w-1 bg-gold-500/50 blur-sm animate-pulse hidden lg:block" />
+                            <p className="text-sm sm:text-xl text-gold-400/90 font-bold leading-relaxed px-4 lg:pr-6 lg:pl-0 lg:border-r border-gold-500/20 text-center lg:text-right">
+                                {typedText}<span className="inline-block w-2 h-5 bg-gold-500 mr-2 animate-bounce" />
+                            </p>
                         </motion.div>
 
-                        {/* CTAs */}
+                        {/* High-End CTAs */}
                         <motion.div
-                            initial={{ y: 30, opacity: 0 }}
+                            initial={typeof window !== 'undefined' && window.innerWidth > 1024 ? { y: 20, opacity: 0 } : { opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 1.5 }}
-                            className="flex flex-col sm:flex-row gap-4 mb-12"
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                            className="flex flex-col sm:flex-row gap-3 sm:gap-5 pt-4 w-full items-center justify-center lg:justify-end"
                         >
                             <Button
                                 variant="primary"
                                 size="lg"
                                 href="#contact"
-                                className="px-10 py-5 text-lg group relative overflow-hidden"
+                                className="px-6 py-3.5 sm:px-10 sm:py-5 text-sm sm:text-lg font-black group shadow-[0_20px_40px_rgba(218,165,32,0.2)] hover:shadow-[0_25px_50px_rgba(218,165,32,0.35)] transition-all w-[80%] sm:w-auto"
                             >
-                                <span className="relative z-10">احجز استشارة مجانية</span>
+                                <span>ابدأ الآن</span>
                             </Button>
                             <Button
                                 variant="outline"
                                 size="lg"
                                 href="#services"
-                                className="px-10 py-5 text-lg hover:bg-white/5"
+                                className="px-6 py-3.5 sm:px-10 sm:py-5 text-sm sm:text-lg font-bold border-white/10 hover:border-gold-500/50 bg-white/[0.02] w-[80%] sm:w-auto"
                             >
-                                استكشف خدماتنا
+                                استعراض الخدمات
                             </Button>
                         </motion.div>
 
-                        {/* Animated Stats */}
+                        {/* Trust Bar */}
                         <motion.div
-                            initial={{ y: 50, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 1.7 }}
-                            className="grid grid-cols-3 gap-6 mb-8"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1, delay: 1.2 }}
+                            className="flex flex-wrap items-center justify-center lg:justify-end gap-6 pt-10 opacity-60"
                         >
-                            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-transform">
-                                <div className="text-3xl md:text-4xl font-black text-gold-500 mb-1">+{counts.years}</div>
-                                <div className="text-xs md:text-sm text-gray-400">سنة خبرة</div>
-                            </div>
-                            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-transform">
-                                <div className="text-3xl md:text-4xl font-black text-gold-500 mb-1">+{counts.clients}</div>
-                                <div className="text-xs md:text-sm text-gray-400">عميل راضٍ</div>
-                            </div>
-                            <div className="glass-card p-4 rounded-xl hover:scale-105 transition-transform">
-                                <div className="text-3xl md:text-4xl font-black text-gold-500 mb-1">{counts.commitment}%</div>
-                                <div className="text-xs md:text-sm text-gray-400">التزام بالمعايير</div>
-                            </div>
-                        </motion.div>
-
-                        {/* Trust Badges */}
-                        <motion.div
-                            initial={{ y: 30, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 1.9 }}
-                            className="flex flex-wrap gap-4"
-                        >
-                            {['SOCPA', 'وزارة التجارة', 'الغرفة التجارية'].map((badge, i) => (
-                                <motion.div
-                                    key={badge}
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: 2 + i * 0.1, type: "spring" }}
-                                    className="px-4 py-2 bg-white/5 backdrop-blur-md border border-gold-500/20 rounded-lg text-gold-400 text-sm font-bold hover:bg-white/10 transition-colors"
-                                >
-                                    {badge}
-                                </motion.div>
+                            <div className="text-xs font-bold text-white/40 uppercase tracking-[0.2em] w-full lg:w-auto text-center lg:text-right mb-2 lg:mb-0">معتمدين لدى:</div>
+                            {['SOCPA', 'وزارة التجارة', 'الغرفة التجارية'].map((item) => (
+                                <div key={item} className="flex items-center gap-2 group cursor-default">
+                                    <HiCheckCircle className="text-gold-500 group-hover:scale-125 transition-transform" />
+                                    <span className="text-sm font-black text-white/80">{item}</span>
+                                </div>
                             ))}
                         </motion.div>
                     </motion.div>
 
-                    {/* Right Side - Professional Image */}
+                    {/* Right Side Visual */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                        initial={{ opacity: 0, scale: 0.8, x: 50 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
-                        transition={{ duration: 1.2, delay: 0.6 }}
+                        transition={{ duration: 1.5, type: "spring", bounce: 0.3 }}
                         className="relative order-1 lg:order-2"
                     >
-                        <div className="relative">
-                            {/* Decorative Elements */}
-                            <div className="absolute -inset-4 bg-gradient-to-br from-gold-500/20 to-transparent rounded-3xl blur-2xl" />
-                            <div className="absolute inset-0 bg-gradient-to-tr from-navy-900/50 to-transparent rounded-3xl" />
+                        <div className="relative group">
+                            {/* Visual Glows */}
+                            <div className="absolute -inset-10 bg-gold-500/10 rounded-full blur-[80px] group-hover:bg-gold-500/20 transition-all duration-1000" />
 
-                            {/* Image Container */}
-                            <div className="relative rounded-3xl overflow-hidden border border-gold-500/20 shadow-2xl">
+                            {/* Floating Card Design */}
+                            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)]">
                                 <img
                                     src="/assets/hero-professional.png"
-                                    alt="مكتب عبدالله الجاسر - محاسبون محترفون"
-                                    className="w-full h-auto object-cover"
-                                    loading="eager"
+                                    alt="مكتب عبدالله الجاسر - محاسبون ومراجعون قانونيون"
                                     fetchPriority="high"
+                                    className="w-full h-auto object-cover scale-105 group-hover:scale-100 transition-transform duration-[3s]"
                                 />
-                                {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+                                {/* Bottom Shadow Gradient */}
+                                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-950 via-navy-950/60 to-transparent" />
                             </div>
 
-                            {/* Floating Badge */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1.5 }}
-                                className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gold-500 to-gold-600 p-6 rounded-2xl shadow-2xl"
-                            >
-                                <div className="text-center">
-                                    <div className="text-3xl font-black text-white">15+</div>
-                                    <div className="text-xs text-white/90 font-medium">عام من التميز</div>
-                                </div>
-                            </motion.div>
+                            {/* Decorative Rings */}
+                            <div className="absolute -top-10 -left-10 w-40 h-40 border-2 border-gold-500/10 rounded-full animate-spin-slow" />
+                            <div className="absolute -bottom-10 -right-10 w-60 h-60 border border-gold-500/5 rounded-full animate-reverse-spin-slow" />
                         </div>
                     </motion.div>
-
                 </div>
             </div>
 
-
+            {/* Premium Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 2, repeat: Infinity, repeatType: "reverse" }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                role="button"
+                aria-label="التمرير لأسفل لعرض الخدمات"
+            >
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">اكتشف المزيد</span>
+                <HiChevronDown className="text-gold-500 text-2xl" />
+            </motion.div>
 
             <style>{`
-                @keyframes gridPulse {
-                    0%, 100% { opacity: 0.2; }
-                    50% { opacity: 0.4; }
+                @keyframes spin-slow {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
                 }
-                
-                @keyframes gradientShift {
-                    0% { background-position: 0% 50%; }
-                    50% { background-position: 100% 50%; }
-                    100% { background-position: 0% 50%; }
+                @keyframes reverse-spin-slow {
+                    from { transform: rotate(360deg); }
+                    to { transform: rotate(0deg); }
                 }
+                .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+                .animate-reverse-spin-slow { animation: reverse-spin-slow 25s linear infinite; }
             `}</style>
         </section>
     );
 }
+

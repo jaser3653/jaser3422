@@ -1,50 +1,51 @@
-export const servicesData = [
+export interface ServiceDetail {
+    id: number;
+    title: string;
+    shortDesc: string;
+    image: string;
+    icon: string;
+    details: {
+        overview: React.ReactNode;
+        targetAudience: React.ReactNode;
+        whyUs: React.ReactNode;
+    };
+}
+
+export const servicesData: ServiceDetail[] = [
     {
         id: 1,
         title: "مراجعة وتدقيق القوائم المالية",
         shortDesc: "تدقيق القوائم المالية وفق المعايير الدولية لضمان الشفافية.",
         image: "/assets/audit_service_1766426375546.png",
         icon: "HiOutlineDocumentSearch",
-        content: (
-            <>
-                <h3 className="text-2xl font-bold text-gold-400 mb-4">أهمية خدمات مراجعة القوائم المالية واعتمادها</h3>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                    تُعد خدمات مراجعة القوائم المالية واعتمادها من بين أهم الخدمات التي تحتاجها الشركات، لما تضيفه من مصداقية وموثوقية على القوائم المالية. إضافة إلى ذلك، فإن الملاحظات التي يقدمها المحاسب القانوني أثناء عملية المراجعة والفحص، سواءً كانت متعلقة بالنظام المحاسبي أو نظام الرقابة الداخلية أو غيرها، تعود بالنفع العام على المنشأة وتساهم في تحسين أدائها التشغيلي والإداري.
-                </p>
-
-                <h4 className="text-xl font-bold text-white mb-4 mt-8">الفئات المستفيدة من خدمات تدقيق القوائم المالية</h4>
-                <ul className="space-y-3 text-gray-300">
-                    <li className="flex items-start gap-3">
-                        <span className="text-gold-500 mt-1">✓</span>
-                        <span><strong>ملاك الشركة الحاليين:</strong> يساعدهم التدقيق على تقييم الوضع المالي للشركة.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-gold-500 mt-1">✓</span>
-                        <span><strong>المستثمرون الجدد أو المحتملون:</strong> يُمكّنهم من اتخاذ قرارات استثمارية مبنية على بيانات موثوقة.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-gold-500 mt-1">✓</span>
-                        <span><strong>هيئة الزكاة والضرائب والجمارك:</strong> تضمن الالتزام الكامل بالقوانين الضريبية.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-gold-500 mt-1">✓</span>
-                        <span><strong>هيئة الاستثمار:</strong> تعتمد التدقيق كوسيلة لتقييم جدوى الاستثمار في المنشآت.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-gold-500 mt-1">✓</span>
-                        <span><strong>البنوك:</strong> تحتاج إلى القوائم المالية المدققة لاتخاذ قرارات الإقراض والتمويل.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-gold-500 mt-1">✓</span>
-                        <span><strong>الجهات الرقابية والاستثمارية الأخرى:</strong> تُقيّم المركز المالي ودخل المنشآت بناءً على القوائم المالية المدققة.</span>
-                    </li>
-                </ul>
-
+        details: {
+            overview: (
+                <>
+                    <h3 className="text-2xl font-bold text-gold-400 mb-4">أهمية خدمات مراجعة القوائم المالية واعتمادها</h3>
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                        تُعد خدمات مراجعة القوائم المالية واعتمادها من بين أهم الخدمات التي تحتاجها الشركات، لما تضيفه من مصداقية وموثوقية على القوائم المالية. إضافة إلى ذلك، فإن الملاحظات التي يقدمها المحاسب القانوني أثناء عملية المراجعة والفحص، سواءً كانت متعلقة بالنظام المحاسبي أو نظام الرقابة الداخلية أو غيرها، تعود بالنفع العام على المنشأة وتساهم في تحسين أدائها التشغيلي والإداري.
+                    </p>
+                </>
+            ),
+            targetAudience: (
+                <>
+                    <h4 className="text-xl font-bold text-white mb-4">الفئات المستفيدة من خدمات تدقيق القوائم المالية</h4>
+                    <ul className="space-y-3 text-gray-300">
+                        <li className="flex items-start gap-3"><span className="text-gold-500 mt-1">✓</span><span><strong>ملاك الشركة الحاليين:</strong> يساعدهم التدقيق على تقييم الوضع المالي للشركة.</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500 mt-1">✓</span><span><strong>المستثمرون الجدد أو المحتملون:</strong> يُمكّنهم من اتخاذ قرارات استثمارية مبنية على بيانات موثوقة.</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500 mt-1">✓</span><span><strong>هيئة الزكاة والضرائب والجمارك:</strong> تضمن الالتزام الكامل بالقوانين الضريبية.</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500 mt-1">✓</span><span><strong>هيئة الاستثمار:</strong> تعتمد التدقيق كوسيلة لتقييم جدوى الاستثمار في المنشآت.</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500 mt-1">✓</span><span><strong>البنوك:</strong> تحتاج إلى القوائم المالية المدققة لاتخاذ قرارات الإقراض والتمويل.</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500 mt-1">✓</span><span><strong>الجهات الرقابية والاستثمارية الأخرى:</strong> تُقيّم المركز المالي ودخل المنشآت بناءً على القوائم المالية المدققة.</span></li>
+                    </ul>
+                </>
+            ),
+            whyUs: (
                 <p className="text-gray-300 leading-relaxed mt-6">
                     تساهم مراجعة القوائم المالية في تحقيق الشفافية المالية وتعزيز ثقة الأطراف ذات العلاقة، مما يجعلها ضرورة أساسية لاستدامة الشركات وتوسيع فرصها الاستثمارية.
                 </p>
-            </>
-        ),
+            )
+        }
     },
     {
         id: 2,
@@ -52,57 +53,35 @@ export const servicesData = [
         shortDesc: "إعداد ورفع الإقرارات الزكوية والضريبية والامتثال للمتطلبات.",
         image: "/assets/tax_service_1766426389728.png",
         icon: "HiOutlineCalculator",
-        content: (
-            <>
-                <h3 className="text-2xl font-bold text-gold-400 mb-4">خدمات الزكاة والضرائب</h3>
-
-                <div className="space-y-6 text-gray-300">
-                    <div className="bg-navy-900/50 p-6 rounded-xl border border-gold-500/10">
-                        <h4 className="text-lg font-bold text-white mb-3">الخدمات الأساسية</h4>
-                        <ul className="space-y-2">
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">•</span>
-                                <span>تقديم إقرارات الزكاة، ضريبة الدخل، وضرائب الاستقطاع</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">•</span>
-                                <span>إعداد الاعتراضات والاستئناف على الربط الزكوي والضريبي</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">•</span>
-                                <span>تمثيل العملاء أمام اللجان الضريبية</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">•</span>
-                                <span>تقديم طلبات التسوية مع الهيئة العامة للزكاة والضريبة والجمارك</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="bg-navy-900/50 p-6 rounded-xl border border-gold-500/10">
-                        <h4 className="text-lg font-bold text-white mb-3">الاستشارات المتخصصة</h4>
-                        <ul className="space-y-2">
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">✓</span>
-                                <span>الزكاة على الاستثمارات الخارجية</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">✓</span>
-                                <span>الضريبة على الفروع الأجنبية والمنشآت الدائمة</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">✓</span>
-                                <span>دراسة المخاطر الضريبية والزكوية المرتبطة بالعقود</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="text-gold-500">✓</span>
-                                <span>تحليل المخاطر الضريبية في عمليات الدمج والاستحواذ</span>
-                            </li>
-                        </ul>
-                    </div>
+        details: {
+            overview: (
+                <div className="bg-navy-900/50 p-6 rounded-xl border border-gold-500/10">
+                    <h4 className="text-lg font-bold text-white mb-3">الخدمات الأساسية</h4>
+                    <ul className="space-y-2 text-gray-300">
+                        <li className="flex items-start gap-3"><span className="text-gold-500">•</span><span>تقديم إقرارات الزكاة، ضريبة الدخل، وضرائب الاستقطاع</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500">•</span><span>إعداد الاعتراضات والاستئناف على الربط الزكوي والضريبي</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500">•</span><span>تمثيل العملاء أمام اللجان الضريبية</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500">•</span><span>تقديم طلبات التسوية مع الهيئة العامة للزكاة والضريبة والجمارك</span></li>
+                    </ul>
                 </div>
-            </>
-        ),
+            ),
+            targetAudience: (
+                <p className="text-gray-300 leading-relaxed">
+                    نستهدف جميع الكيانات التجارية الخاضعة لأنظمة الزكاة والضرائب في المملكة العربية السعودية، لضمان الامتثال التام وتجنب الغرامات المالية مع تقديم حلول ضريبية مبتكرة.
+                </p>
+            ),
+            whyUs: (
+                <div className="bg-navy-900/50 p-6 rounded-xl border border-gold-500/10">
+                    <h4 className="text-lg font-bold text-white mb-3">الاستشارات المتخصصة</h4>
+                    <ul className="space-y-2 text-gray-300">
+                        <li className="flex items-start gap-3"><span className="text-gold-500">✓</span><span>الزكاة على الاستثمارات الخارجية</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500">✓</span><span>الضريبة على الفروع الأجنبية والمنشآت الدائمة</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500">✓</span><span>دراسة المخاطر الضريبية والزكوية المرتبطة بالعقود</span></li>
+                        <li className="flex items-start gap-3"><span className="text-gold-500">✓</span><span>تحليل المخاطر الضريبية في عمليات الدمج والاستحواذ</span></li>
+                    </ul>
+                </div>
+            )
+        }
     },
     {
         id: 3,
@@ -110,42 +89,40 @@ export const servicesData = [
         shortDesc: "قيود يومية دقيقة وتقارير دورية تمنحك رؤية مالية واضحة.",
         image: "/assets/bookkeeping_service_1766426404779.png",
         icon: "HiOutlineChartPie",
-        content: (
-            <>
-                <h3 className="text-2xl font-bold text-gold-400 mb-4">خدمة تسجيل العمليات المحاسبية</h3>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                    تتمثل هذه الخدمة في تسجيل العمليات المحاسبية بشكل منتظم ودقيق باستخدام برنامج محاسبي متخصص، ويتم تنفيذها من قبل فريق مؤهل ذو خبرة عالية في جميع الجوانب المحاسبية. يمكن تقديم الخدمة من خلال زيارات ميدانية للعميل أو عن بُعد، وفق احتياجات المنشأة.
-                </p>
-
-                <h4 className="text-xl font-bold text-white mb-4 mt-8">فوائد الخدمة للعميل</h4>
-
-                <div className="grid md:grid-cols-2 gap-4">
+        details: {
+            overview: (
+                <>
+                    <h3 className="text-2xl font-bold text-gold-400 mb-4">خدمة تسجيل العمليات المحاسبية</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                        تتمثل هذه الخدمة في تسجيل العمليات المحاسبية بشكل منتظم ودقيق باستخدام برنامج محاسبي متخصص، ويتم تنفيذها من قبل فريق مؤهل ذو خبرة عالية في جميع الجوانب المحاسبية. يمكن تقديم الخدمة من خلال زيارات ميدانية للعميل أو عن بُعد، وفق احتياجات المنشأة.
+                    </p>
+                </>
+            ),
+            targetAudience: (
+                <div className="grid md:grid-cols-2 gap-4 mt-8">
                     <div className="bg-navy-900/50 p-5 rounded-xl border border-gold-500/10">
                         <h5 className="font-bold text-gold-400 mb-2">تخفيض التكاليف التشغيلية</h5>
                         <p className="text-sm text-gray-300">لا حاجة لتوظيف فريق مختص داخل المنشأة، مما يقلل التكاليف المرتبطة بالرواتب والمزايا الأخرى.</p>
                     </div>
-
                     <div className="bg-navy-900/50 p-5 rounded-xl border border-gold-500/10">
                         <h5 className="font-bold text-gold-400 mb-2">خبرة مهنية عالية</h5>
                         <p className="text-sm text-gray-300">يتم تقديم الخدمة من قبل مختصين ذوي خبرة وكفاءة عالية، مما يُعدّ خيارًا أكثر كفاءة وفعالية.</p>
                     </div>
-
+                </div>
+            ),
+            whyUs: (
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
                     <div className="bg-navy-900/50 p-5 rounded-xl border border-gold-500/10">
                         <h5 className="font-bold text-gold-400 mb-2">تنظيم وحفظ المستندات</h5>
                         <p className="text-sm text-gray-300">يتم حفظ الفواتير والمستندات عبر برامج سحابية متطورة، مما يحميها من التلف أو الضياع.</p>
                     </div>
-
                     <div className="bg-navy-900/50 p-5 rounded-xl border border-gold-500/10">
                         <h5 className="font-bold text-gold-400 mb-2">سهولة إعداد القوائم المالية</h5>
                         <p className="text-sm text-gray-300">تتيح الخدمة إعداد القوائم المالية السنوية واعتمادها من محاسب قانوني بطريقة ميسرة ومنظمة.</p>
                     </div>
                 </div>
-
-                <p className="text-gray-300 leading-relaxed mt-6">
-                    تساعد هذه الخدمة الشركات في تنظيم أمورها المالية بفعالية مع ضمان الامتثال للمتطلبات القانونية، ما يعزز من كفاءتها التشغيلية ومصداقيتها.
-                </p>
-            </>
-        ),
+            )
+        }
     },
     {
         id: 4,
@@ -153,62 +130,30 @@ export const servicesData = [
         shortDesc: "إعداد تقارير مالية دقيقة وفق المعايير الدولية.",
         image: "/assets/financial_reports_1766426418141.png",
         icon: "HiOutlineTrendingUp",
-        content: (
-            <>
-                <h3 className="text-2xl font-bold text-gold-400 mb-4">التقارير المالية</h3>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                    نقدم خدمات متخصصة في إعداد التقارير المالية لضمان تلبية احتياجات أعمالكم بأعلى مستويات الدقة والجودة.
-                </p>
-
+        details: {
+            overview: (
+                <>
+                    <h3 className="text-2xl font-bold text-gold-400 mb-4">التقارير المالية</h3>
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                        نقدم خدمات متخصصة في إعداد التقارير المالية لضمان تلبية احتياجات أعمالكم بأعلى مستويات الدقة والجودة.
+                    </p>
+                </>
+            ),
+            targetAudience: (
                 <div className="space-y-4">
-                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500">
-                        <span className="text-3xl">📊</span>
-                        <div>
-                            <h5 className="font-bold text-white mb-2">الامتثال للمعايير الدولية</h5>
-                            <p className="text-gray-300 text-sm">إعداد التقارير المالية بما يتوافق مع المعايير الدولية، لضمان الشفافية والالتزام.</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500">
-                        <span className="text-3xl">🔍</span>
-                        <div>
-                            <h5 className="font-bold text-white mb-2">تحليل مالي شامل</h5>
-                            <p className="text-gray-300 text-sm">إجراء تحليل دقيق للبيانات المالية، مما يتيح رؤية واضحة وشاملة لأداء الشركة.</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500">
-                        <span className="text-3xl">✅</span>
-                        <div>
-                            <h5 className="font-bold text-white mb-2">تقديم تقارير شفافة</h5>
-                            <p className="text-gray-300 text-sm">توفير تقارير مالية دقيقة ومطابقة للمعايير المحاسبية الدولية، مما يعزز من وضوح العمليات المالية.</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500">
-                        <span className="text-3xl">🎯</span>
-                        <div>
-                            <h5 className="font-bold text-white mb-2">مراجعة الامتثال</h5>
-                            <p className="text-gray-300 text-sm">التأكد من التزام التقارير المالية بالمعايير الدولية للمحاسبة، لضمان مصداقيتها.</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500">
-                        <span className="text-3xl">🏆</span>
-                        <div>
-                            <h5 className="font-bold text-white mb-2">إبلاغ موثوق</h5>
-                            <p className="text-gray-300 text-sm">تقديم تقارير مالية دقيقة وموثوقة، تعزز الثقة بين أصحاب المصلحة والمستثمرين.</p>
-                        </div>
-                    </div>
+                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500"><span className="text-3xl">📊</span><div><h5 className="font-bold text-white mb-2">الامتثال للمعايير الدولية</h5><p className="text-gray-300 text-sm">إعداد التقارير المالية بما يتوافق مع المعايير الدولية، لضمان الشفافية والالتزام.</p></div></div>
+                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500"><span className="text-3xl">🔍</span><div><h5 className="font-bold text-white mb-2">تحليل مالي شامل</h5><p className="text-gray-300 text-sm">إجراء تحليل دقيق للبيانات المالية، مما يتيح رؤية واضحة وشاملة لأداء الشركة.</p></div></div>
+                    <div className="flex items-start gap-4 bg-navy-900/30 p-5 rounded-xl border-r-4 border-gold-500"><span className="text-3xl">✅</span><div><h5 className="font-bold text-white mb-2">تقديم تقارير شفافة</h5><p className="text-gray-300 text-sm">توفير تقارير مالية دقيقة ومطابقة للمعايير المحاسبية الدولية، مما يعزز من وضوح العمليات المالية.</p></div></div>
                 </div>
-
+            ),
+            whyUs: (
                 <div className="mt-8 p-6 bg-gradient-to-r from-gold-500/10 to-gold-600/10 rounded-xl border border-gold-500/20">
                     <p className="text-white font-medium text-center">
                         هدفنا تقديم تقارير مالية دقيقة تلبي أعلى المعايير العالمية، بما يعزز جودة وشفافية الوضع المالي لشركتك ويدعم اتخاذ قرارات مستنيرة.
                     </p>
                 </div>
-            </>
-        ),
+            )
+        }
     },
     {
         id: 5,
@@ -216,43 +161,39 @@ export const servicesData = [
         shortDesc: "خدمات متخصصة للمطورين العقاريين وحسابات الضمان.",
         image: "/assets/wafi_reports_1766426433141.png",
         icon: "HiOutlineOfficeBuilding",
-        content: (
-            <>
-                <h3 className="text-2xl font-bold text-gold-400 mb-4">تقارير البيع والتأجير على الخارطة – وافي</h3>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                    تُقدم هذه الخدمة حلولًا احترافية لتسجيل وإعداد تقارير دقيقة وشاملة لجميع العمليات المرتبطة بالبيع والتأجير على الخارطة، بما يتماشى مع متطلبات برنامج "وافي".
-                </p>
-
-                <h4 className="text-xl font-bold text-white mb-4">مزايا الخدمة</h4>
-
+        details: {
+            overview: (
+                <>
+                    <h3 className="text-2xl font-bold text-gold-400 mb-4">تقارير البيع والتأجير على الخارطة – وافي</h3>
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                        تُقدم هذه الخدمة حلولًا احترافية لتسجيل وإعداد تقارير دقيقة وشاملة لجميع العمليات المرتبطة بالبيع والتأجير على الخارطة، بما يتماشى مع متطلبات برنامج "وافي".
+                    </p>
+                </>
+            ),
+            targetAudience: (
                 <div className="space-y-3">
+                    <h4 className="text-xl font-bold text-white mb-4">مزايا الخدمة</h4>
                     {[
                         { title: "ضمان الامتثال للوائح وافي", desc: "توفر الخدمة تقارير مُعدة وفقًا للمعايير التي يحددها برنامج وافي، مما يساعد الشركات على الامتثال الكامل للمتطلبات التنظيمية والقانونية." },
                         { title: "تسجيل العمليات المالية بدقة", desc: "يتم تسجيل كافة العمليات المحاسبية بشكل منتظم ومنظم باستخدام برامج محاسبية متطورة، مما يعزز شفافية البيانات ويضمن تقديم تقارير دقيقة." },
-                        { title: "تخفيض التكاليف التشغيلية", desc: "تساعد الخدمة المنشآت على الاستغناء عن تعيين فرق محاسبية داخلية، مما يقلل التكاليف المرتبطة بالرواتب والمزايا الأخرى." },
-                        { title: "إعداد تقارير مالية موثوقة", desc: "تُقدم الخدمة تقارير مالية شاملة تساعد في تحليل الأداء المالي والتشغيلي، وتُمكّن الشركات من اتخاذ قرارات استراتيجية مدروسة." },
-                        { title: "تنظيم وحفظ البيانات", desc: "يتم حفظ كافة المستندات المالية والبيانات المتعلقة بعمليات البيع والتأجير على أنظمة سحابية آمنة، مما يحميها من التلف أو الفقدان." },
-                        { title: "تعزيز كفاءة العمليات العقارية", desc: "تساهم الخدمة في تحسين إدارة العمليات العقارية من خلال تحليل بيانات البيع والتأجير بدقة وتقديم توصيات استراتيجية للشركات." },
-                        { title: "سهولة إعداد التقارير الدورية", desc: "يتم إعداد التقارير الشهرية والسنوية المتعلقة بالبيع والتأجير بطريقة ميسرة ومنظمة، مع ضمان اعتمادها من محاسب قانوني." }
+                        { title: "تعزيز كفاءة العمليات العقارية", desc: "تساهم الخدمة في تحسين إدارة العمليات العقارية من خلال تحليل بيانات البيع والتأجير بدقة وتقديم توصيات استراتيجية للشركات." }
                     ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 p-4 bg-navy-900/40 rounded-lg border border-gold-500/10 hover:border-gold-500/30 transition-colors">
+                        <div key={i} className="flex items-start gap-3 p-4 bg-navy-900/40 rounded-lg border border-gold-500/10">
                             <span className="text-gold-500 text-xl font-bold">{i + 1}</span>
-                            <div>
-                                <h5 className="font-bold text-white mb-1">{item.title}</h5>
-                                <p className="text-sm text-gray-300">{item.desc}</p>
-                            </div>
+                            <div><h5 className="font-bold text-white mb-1">{item.title}</h5><p className="text-sm text-gray-300">{item.desc}</p></div>
                         </div>
                     ))}
                 </div>
-
+            ),
+            whyUs: (
                 <div className="mt-8 p-6 bg-gold-500/5 rounded-xl border border-gold-500/20">
                     <h5 className="font-bold text-gold-400 mb-3 text-center">لماذا تختار خدماتنا؟</h5>
                     <p className="text-gray-300 text-center leading-relaxed">
                         يتميز فريقنا بالكفاءة والخبرة العالية في إعداد التقارير المحاسبية وفق متطلبات القطاع العقاري ولوائح "وافي"، مما يعزز من مصداقية المنشأة وكفاءتها التشغيلية.
                     </p>
                 </div>
-            </>
-        ),
+            )
+        }
     },
     {
         id: 6,
@@ -260,52 +201,36 @@ export const servicesData = [
         shortDesc: "استشارات مالية وإدارية متخصصة حسب احتياجاتك.",
         image: "/assets/consulting_service_1766426448807.png",
         icon: "HiOutlineScale",
-        content: (
-            <>
-                <h3 className="text-2xl font-bold text-gold-400 mb-4">الخدمات الأخرى</h3>
-                <p className="text-gray-300 leading-relaxed mb-8 text-lg">
-                    نظرًا لتنوع الخدمات المالية والمحاسبية وتعدد مجالاتها، نؤكد استعدادنا لتقديم أي خدمات ذات صلة لم يتم ذكرها ضمن القائمة، بما يلبي احتياجات عملائنا بشكل كامل.
-                </p>
-
+        details: {
+            overview: (
+                <>
+                    <h3 className="text-2xl font-bold text-gold-400 mb-4">الخدمات الأخرى</h3>
+                    <p className="text-gray-300 leading-relaxed mb-6">
+                        نظرًا لتنوع الخدمات المالية والمحاسبية وتعدد مجالاتها، نؤكد استعدادنا لتقديم أي خدمات ذات صلة لم يتم ذكرها ضمن القائمة، بما يلبي احتياجات عملائنا بشكل كامل.
+                    </p>
+                </>
+            ),
+            targetAudience: (
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="bg-gradient-to-br from-navy-900 to-navy-800 p-6 rounded-xl border border-gold-500/20">
-                        <div className="text-4xl mb-4">💼</div>
-                        <h4 className="text-xl font-bold text-white mb-3">الاستشارات المالية</h4>
-                        <p className="text-gray-300">خطط استراتيجية لتحسين الأداء المالي وإدارة المخاطر بكفاءة عالية.</p>
-                    </div>
-
-                    <div className="bg-gradient-to-br from-navy-900 to-navy-800 p-6 rounded-xl border border-gold-500/20">
-                        <div className="text-4xl mb-4">⚖️</div>
                         <h4 className="text-xl font-bold text-white mb-3">التركات والنزاعات</h4>
-                        <p className="text-gray-300">قسمة التركات والشركات بإجراءات محاسبية وقانونية دقيقة.</p>
+                        <p className="text-gray-300 text-sm">قسمة التركات والشركات بإجراءات محاسبية وقانونية دقيقة.</p>
                     </div>
-
                     <div className="bg-gradient-to-br from-navy-900 to-navy-800 p-6 rounded-xl border border-gold-500/20">
-                        <div className="text-4xl mb-4">🔄</div>
                         <h4 className="text-xl font-bold text-white mb-3">التسوية الوقائية</h4>
-                        <p className="text-gray-300">إعادة التنظيم المالي والتسوية الوقائية للشركات المتعثرة.</p>
-                    </div>
-
-                    <div className="bg-gradient-to-br from-navy-900 to-navy-800 p-6 rounded-xl border border-gold-500/20">
-                        <div className="text-4xl mb-4">📋</div>
-                        <h4 className="text-xl font-bold text-white mb-3">خدمات مخصصة</h4>
-                        <p className="text-gray-300">نقدم حلولاً محاسبية ومالية مخصصة تلبي احتياجاتك الفريدة.</p>
+                        <p className="text-gray-300 text-sm">إعادة التنظيم المالي والتسوية الوقائية للشركات المتعثرة.</p>
                     </div>
                 </div>
-
+            ),
+            whyUs: (
                 <div className="mt-8 p-8 bg-gradient-to-r from-gold-500/10 via-gold-600/10 to-gold-500/10 rounded-2xl border-2 border-gold-500/20 text-center">
                     <h4 className="text-2xl font-bold text-white mb-4">هل لديك احتياج محاسبي خاص؟</h4>
                     <p className="text-gray-300 mb-6 leading-relaxed">
                         فريقنا المتخصص جاهز لتقديم استشارات مخصصة تناسب طبيعة عملك وأهدافك المالية. تواصل معنا اليوم لمناقشة احتياجاتك.
                     </p>
-                    <a
-                        href="#contact"
-                        className="inline-block px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300"
-                    >
-                        تواصل معنا الآن
-                    </a>
                 </div>
-            </>
-        ),
-    },
+            )
+        }
+    }
 ];
+
