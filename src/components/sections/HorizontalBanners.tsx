@@ -83,37 +83,6 @@ export default function HorizontalBanners() {
             }
         });
 
-        // Parallax effect for images
-        gsap.utils.toArray('.banner-image').forEach((image: any) => {
-            gsap.to(image, {
-                x: -100,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: container,
-                    start: 'top top',
-                    end: () => `+=${scrollWidth}`,
-                    scrub: 1
-                }
-            });
-        });
-
-        // Fade in text on scroll
-        gsap.utils.toArray('.banner-text').forEach((text: any, index) => {
-            gsap.fromTo(text,
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    scrollTrigger: {
-                        trigger: container,
-                        start: `top+=${index * 25}% top`,
-                        end: `top+=${index * 25 + 15}% top`,
-                        scrub: 1
-                    }
-                }
-            );
-        });
-
         return () => {
             scrollTween.kill();
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -136,15 +105,14 @@ export default function HorizontalBanners() {
                         key={banner.id}
                         className="relative w-screen h-full flex-shrink-0"
                     >
-                        {/* Background Image with Parallax */}
+                        {/* Background Image */}
                         <div className="absolute inset-0 overflow-hidden">
                             <img
                                 src={banner.image}
                                 alt={banner.title}
-                                className="banner-image absolute inset-0 w-full h-full object-cover"
+                                className="absolute inset-0 w-full h-full object-cover"
                                 style={{
-                                    filter: 'brightness(0.5) contrast(1.1)',
-                                    transform: 'scale(1.2)'
+                                    filter: 'brightness(0.5) contrast(1.1)'
                                 }}
                             />
                         </div>

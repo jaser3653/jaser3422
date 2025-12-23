@@ -9,7 +9,7 @@ import About from './components/sections/About'
 import Services from './components/sections/Services'
 import Expertise from './components/sections/Expertise'
 import Vision from './components/sections/Vision'
-import HorizontalBanners from './components/sections/HorizontalBanners'
+import StaticBanner from './components/sections/StaticBanner'
 import Testimonials from './components/sections/Testimonials'
 import Contact from './components/sections/Contact'
 
@@ -50,7 +50,7 @@ function App() {
                         <Services />
                         <Expertise />
                         <Vision />
-                        <HorizontalBanners />
+                        <StaticBanner />
                         <Testimonials />
                         <Contact />
                     </main>
